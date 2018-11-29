@@ -41,7 +41,7 @@ where ![nj](https://user-images.githubusercontent.com/25671774/37006752-b803b9a6
 Output rules were mapped to PDZ-peptide interaction matrices (see two example below). Each interaction pair in a matrix contained a measured Kd value (green) representing a binding interaction, or -1.0 or -100.0 representing a non-binding interaction where no Kd value could be measured. 
 
 *Rule 1*
-![rule](https://user-images.githubusercontent.com/25671774/42121997-e63363f2-7bf7-11e8-950d-3a1cdec36210.png)
+![rule](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/rule1.png)
 
 1) selectivity transition >SHANK1_1/1_216X_P_1Q3PA vs. >SHANK3_1/1_217X_P_1Q3PA:
 the first 5 peptides ended with TRL and the single amino acid change from K to R blocked only the peptide starting with AQ but not the other four peptides that continued to bind strongly.
@@ -50,7 +50,7 @@ the first 5 peptides ended with TRL and the single amino acid change from K to R
 all 6 peptides were binding to each PDZ, but Kd values for the peptides ending with TRL increased when binding to >NHERF-1_2/2_194X_P_2OZFA.
 
 *Rule 2*
-![rule2](https://user-images.githubusercontent.com/25671774/42121899-751280ba-7bf5-11e8-8573-e6ec4790f384.png)
+![rule2](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/rule2.png)
 
 1) S A in >PSD95_1/3_28X_P_1KEFA and >SAP97_1/3_29X_P_1ZOKA did not change the binding profile from previous interactions
 
