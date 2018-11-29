@@ -24,7 +24,7 @@ The data set published by Stiffler et al. (2007) was used as a source of verifie
 
 659 binding interactions and 21475 non-binding interactions were identified with protein microarrays. All identified binding interactions and a subset of non-binding interactions were verified with fluorescence polarization. Although the total number of binding interactions was relatively small, almost all position-amino-acid pairs were involved in binding interactions (green). A small subset of position-amino-acid pairs were involved in only non-binding interactions (orange).
 
-![binding_s](https://user-images.githubusercontent.com/25671774/42129316-f9609364-7c7e-11e8-99c8-f0be7e772b32.png)
+![binding_s](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/data.png)
 
 **Results**
 
