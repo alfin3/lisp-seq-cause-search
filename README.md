@@ -32,9 +32,9 @@ The data set published by Stiffler et al. (2007) was used as a source of verifie
 
 The size of the search space was given by
 
-![form](https://user-images.githubusercontent.com/25671774/37006751-b5987846-208e-11e8-8cbf-ba4f155b498c.gif), 
+![form](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/space_size.gif), 
 
-where ![nj](https://user-images.githubusercontent.com/25671774/37006752-b803b9a6-208e-11e8-80c6-b93af8bd4ee3.gif) was the number of literals at the position ![j](https://user-images.githubusercontent.com/25671774/37006849-395008de-208f-11e8-87f8-7e4f2e1da074.gif). A mixture of hill-climbing and random walk was used. Each search was started with the rule that included all literals that occured in binding data instances. Literals were preferably deleted from and sometimes added to a rule during a search. After each deletion of a literal, the resulting rule retained the literals of the preceding rule that did not change its set of satisfied instances ("non-essential" literals). This feature improved search results, demonstrating that the choice of a better representation of search solutions could improve the performance of a local search algorithm. "Non-essential" literals were deleted in a final output rule. 
+where ![nj](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/nj.gif) was the number of literals at the position ![j](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/j.gif). A mixture of hill-climbing and random walk was used. Each search was started with the rule that included all literals that occured in binding data instances. Literals were preferably deleted from and sometimes added to a rule during a search. After each deletion of a literal, the resulting rule retained the literals of the preceding rule that did not change its set of satisfied instances ("non-essential" literals). This feature improved search results, demonstrating that the choice of a better representation of search solutions could improve the performance of a local search algorithm. "Non-essential" literals were deleted in a final output rule. 
 
 ![combo](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/search_runs.png)
 
