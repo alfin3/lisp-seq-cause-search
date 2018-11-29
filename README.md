@@ -12,7 +12,7 @@ An input data set consists of sequences of discrete tokens. Each sequence is ass
 
 A rule is a conjunction of disjunctions. A conjunction across sequence positions constrains a rule, whereas XOR disjunctions across literals at each sequence position relax a rule. A rule satisfies a subset of sequences in the input data set. An objective function maps the values of satisfied sequences to a real value. 
 
-The search algorithm provides a local search for rules with a minimized or maximized value of the objective function, and a minimized sequence variance for interpretability purposes. The latter property is formulated outside the objective function and is enabled by i) constructing each disjunction in a start rule from a set of literals, such that each literal is expected to be satisfied in at least one optimal rule, and ii) setting a preference for literal deletion over literal addition during a search step.
+The search algorithm provides a local search for rules with a minimized or maximized value of the objective function, and a minimized sequence variance for interpretability purposes. The latter property is formulated outside the objective function and is enabled by i) constructing each disjunction in a start rule from a set of literals, such that each literal is expected to be satisfied in at least one optimal rule, and ii) setting a preference for literal deletion over literal addition in a search step.
 
 **Application - Bioengineering, Proteomics**
 
@@ -28,7 +28,7 @@ The data set published by Stiffler et al. (2007) was used as a source of verifie
 
 **Results**
 
-16 sequence positions across PDZ domains and 5 sequence positions across peptides were considered. A rule was defined as a conjunction of 21 XOR disjunctions of amino acid literals. Given a rule, the value of the objective function was defined as the ratio of binding data instances to non-binding data instances satisfied by the rule. 
+16 sequence positions across PDZ domains and 5 sequence positions across peptides were considered. A rule was defined as a conjunction of 21 XOR disjunctions of amino acid literals. The value of the objective function was defined as the ratio of binding data instances to non-binding data instances satisfied by a rule. 
 
 The size of the search space was given by
 
