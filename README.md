@@ -4,7 +4,7 @@
 
 Identifying causes of rare events remains a challenge across disciplines such as natural language processing, software safety, and bioengineering. Causal information can often be contained in sequences of discrete tokens (e.g. words, computation states, nucleotides), associated with a discrete or continuous value indicating an occurrence or property of a rare event. 
 
-The presented algorithm enables enrichment of sequences associated with rare events by searching for concise logical representations. The algorithm i) is scalable in the number of considered sequence positions and ii) provides an interpretable search space for identification of potential causal relationships.
+The presented search algorithm enables enrichment of sequences associated with rare events in concise logical representations. The algorithm i) is scalable in the number of considered sequence positions and ii) provides an interpretable search space for identification of potential causal relationships.
 
 **Algorithm**
 
