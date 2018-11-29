@@ -16,7 +16,7 @@ The search algorithm provides a local search for rules with a minimized or maxim
 
 **Application Example - Bioengineering, Proteomics**
 
-Protein-protein interactions provide an effective way to modulate protein targets for therapeutic purposes. However, binding events in protein-protein interaction data are generally rare and can be associated with a high sequence variance across many interdependent amino acid positions. As a consequence, it remains challenging to mechanistically link specific amino acid changes to observed affinity and selectivity changes. 
+Protein-protein interactions provide an effective way to modulate protein targets for therapeutic purposes. However, binding events in protein-protein interaction data are generally rare and can be associated with a high sequence variance across many interdependent amino acid positions. As a consequence, it remains challenging to causally link specific amino acid changes to observed affinity and selectivity changes. 
 
 **Data**
 
