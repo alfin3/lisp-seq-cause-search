@@ -14,7 +14,7 @@ A rule is a conjunction of disjunctions. A conjunction across sequence positions
 
 The search algorithm provides a local search for rules with a minimized or maximized value of the objective function, and a minimized sequence variance for interpretability purposes. The latter property is formulated outside the objective function and is enabled by i) constructing each disjunction in a start rule from a set of literals, such that each literal is expected to be satisfied in at least one optimal rule, and ii) setting a preference for literal deletion over literal addition in a search step.
 
-**Application - Bioengineering, Proteomics**
+**Application Example - Bioengineering, Proteomics**
 
 Protein-protein interactions provide an effective way to modulate protein targets for therapeutic purposes. However, binding events in protein-protein interaction data are generally rare and can be associated with a high sequence variance across many interdependent amino acid positions. As a consequence, it remains challenging to mechanistically link specific amino acid changes to observed affinity and selectivity changes. 
 
