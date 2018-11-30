@@ -22,7 +22,7 @@ Protein-protein interactions provide an effective way to modulate protein target
 
 The data set published by Stiffler et al. (2007) was used as a source of verified interaction pairs between PDZ domains and peptide partners. The entire data set, comprising 22134 interaction pairs, was acquired under controlled standardized conditions and was not pooled from different sources.
 
-659 binding interactions and 21475 non-binding interactions were identified with protein microarrays. All identified binding interactions and a subset of non-binding interactions were verified with fluorescence polarization. Although the total number of binding interactions was relatively small, almost all position-amino-acid pairs were involved in binding interactions (green). A small subset of position-amino-acid pairs were involved in only non-binding interactions (orange).
+659 binding interactions and 21475 non-binding interactions were identified with protein microarrays. All identified binding interactions and a subset of non-binding interactions were verified with fluorescence polarization. Although binding interactions were rare, almost all position-amino-acid pairs were involved in binding interactions (green). A small subset of position-amino-acid pairs were involved in only non-binding interactions (orange).
 
 ![binding_s](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/data.png)
 
