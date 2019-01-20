@@ -10,7 +10,7 @@ The presented search algorithm enables enrichment of sequences associated with r
 
 An input data set consists of sequences of discrete tokens. Each sequence is associated with a continuous or discrete value.
 
-A rule is a conjunction of disjunctions. A conjunction across sequence positions constrains a rule, whereas XOR disjunctions across literals at each sequence position relax a rule. A rule satisfies a subset of sequences in the input data set. An objective function maps the values of satisfied sequences to a real value. 
+A rule is a conjunction of disjunctions. A conjunction across sequence positions constrains a rule, whereas XOR disjunctions across literals at each sequence position relax a rule. A rule satisfies a subset of sequences in the input data set. An objective function maps satisfied sequences to a real value. 
 
 The search algorithm provides a local search for rules with a minimized or maximized value of the objective function, and a minimized sequence variance for interpretability purposes. The latter property is formulated outside the objective function and is enabled by i) constructing each disjunction in a start rule from a set of literals, such that each literal is expected to be satisfied in at least one optimal rule, and ii) setting a preference for literal deletion over literal addition in a search step.
 
