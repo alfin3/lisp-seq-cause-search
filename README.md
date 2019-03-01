@@ -16,7 +16,12 @@ The search algorithm provides a local search for rules with a minimized or maxim
 
 **Asymptotic Analysis**
 
-The below analysis is based on the provided implementation of the WalkSAT-inspired local search step.
+The below analysis is based on the provided implementation of the WalkSAT-inspired local search step. To move from a solution to the next, three literal deletion options are considered: <br/>
+1) choose a random (false) satisfied data instance, and then choose the POSITION and LITERAL in the data instance whose deletion optimizes the objective function
+2) choose a RANDOM POSITION in the current solution, and then choose the LITERAL whose deletion optimizes the objective function
+3) chose a RANDOM LITERAL in the current solution, and then choose the POSITION where the deletion of the literal optimizes the objective function
+
+If a defined enrichment threshold is reached, the best of 1-3 is always chosen. Otherwise, the best of 1-3 is chosen with some probability. With some probability, a random option of 1-3 is chosen. Finally, with some probability, a literal is added to the current solution.
 
 N: size of the data set of sequences <br/>
 T: number of time points in each sequence <br/>
