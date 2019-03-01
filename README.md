@@ -63,7 +63,6 @@ Output rules were mapped to PDZ-peptide interaction matrices (see two example be
 
 1) selectivity transition >SHANK1_1/1_216X_P_1Q3PA vs. >SHANK3_1/1_217X_P_1Q3PA:
 the first 5 peptides ended with TRL and the single amino acid change from K to R blocked only the peptide starting with AQ but not the other four peptides that continued to bind strongly.
-
 2) affinity transition >SHANK3_1/1_217X_P_1Q3PA vs. >NHERF-1_2/2_194X_P_2OZFA:
 all 6 peptides were binding to each PDZ, but Kd values for the peptides ending with TRL increased when binding to >NHERF-1_2/2_194X_P_2OZFA.
 
@@ -71,9 +70,7 @@ all 6 peptides were binding to each PDZ, but Kd values for the peptides ending w
 ![rule2](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/rule2.png)
 
 1) S A in >PSD95_1/3_28X_P_1KEFA and >SAP97_1/3_29X_P_1ZOKA did not change the binding profile from previous interactions
-
 2) but additional changes SRA D in >SCRB1_2/4_37X_P_1WHAA left only IETHV interacting,
-
 3) but then again additional changes N V K Q in >OMP25_1/1_8X_P_2ENOA restored the initial interaction profile.
 
 The starter function in stochastic-search.lisp can be used to run a search (e.g. (starter "DATA_full.txt") with a pre-seeded random state). 
