@@ -21,7 +21,7 @@ The below analysis is based on the provided implementation of the WalkSAT-inspir
 2) choose a RANDOM POSITION in the current solution, and then choose the LITERAL whose deletion optimizes the objective function
 3) chose a RANDOM LITERAL in the current solution, and then choose the POSITION where the deletion of the literal optimizes the objective function
 
-If a defined enrichment threshold is reached, the best of 1-3 is always chosen. Otherwise, the best of 1-3 is chosen with some probability. With some probability, a random option of 1-3 is chosen. Finally, with some probability, a literal is added to the current solution.
+If a defined enrichment threshold is reached, the best of 1-3 is always chosen. Otherwise, the best of 1-3 is chosen with some probability. With some probability, a random option of 1-3 is chosen. With some probability, a literal is added to the current solution.
 
 N: size of the data set of sequences <br/>
 T: number of time points in each sequence <br/>
