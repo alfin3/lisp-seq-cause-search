@@ -16,6 +16,8 @@ The search algorithm provides a local search for rules with a minimized or maxim
 
 **Asymptotic Analysis**
 
+The below analysis is based on the provided implementation of the WalkSAT-inspired local search step.
+
 N: size of the data set of sequences <br/>
 T: number of time points in each sequence <br/>
 L: max number of literals at any time point <br/>
