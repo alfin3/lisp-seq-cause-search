@@ -16,10 +16,10 @@ The search algorithm provides a local search for rules with a minimized or maxim
 
 **Asymptotic Analysis**
 
-N: size of the data set of sequences
-T: number of time points in each sequence
-L: max number of literals at any time point
-S: number of local search steps
+N: size of the data set of sequences <br/>
+T: number of time points in each sequence <br/>
+L: max number of literals at any time point <br/>
+S: number of local search steps <br/>
 
 O(SN(2T + L))
 
