@@ -30,7 +30,7 @@ S: number of local search steps <br/>
 
 O(SN(2T + L))
 
-2T could be implemented as T, providing O(SN(T + L)). The use or design of suitable data structures may enable tighter bounds with respect to N in order to avoid the traversal of the entire data set at each step.  
+2T could be implemented as T, providing O(SN(T + L)). The use or design of suitable data structures to avoid the traversal of the entire data at each step may provide lower bounds with respect to N.  
 
 **Application Example - Bioengineering, Proteomics**
 
