@@ -17,18 +17,22 @@ The search algorithm provides a local search for rules with a minimized or maxim
 **Asymptotic Analysis**
 
 The below analysis is based on the provided implementation of the WalkSAT-inspired local search step. To move from a solution to the next solution, three literal deletion options are considered: <br/>
-1) choose a random (false) satisfied data instance, and then choose the POSITION and LITERAL in the data instance whose deletion optimizes the objective function,
+1) choose a random (false) satisfied data instance, and then choose the POSITION and the LITERAL in the data instance whose deletion optimizes the objective function,
 2) choose a RANDOM POSITION in the current solution, and then choose the LITERAL whose deletion optimizes the objective function,
 3) chose a RANDOM LITERAL in the current solution, and then choose the POSITION where the deletion of the literal optimizes the objective function.
 
 If a pre-defined enrichment threshold is reached, the best of 1-3 is always chosen. Otherwise, the best of 1-3 is chosen with some probability. With some probability, a random option of 1-3 is chosen. With some probability, a literal is added to the current solution.
 
+Given
+
 N: size of the data set of sequences <br/>
-T: number of time points in each sequence <br/>
-L: max number of literals at any time point <br/>
+T: number of positions in each sequence <br/>
+L: max number of literals at any position <br/>
 S: number of local search steps <br/>
 
-O(SN(2T + L))
+we obtain
+
+O(SN(2T + L)).
 
 2T could be implemented as T, providing O(SN(T + L)). The use or design of suitable data structures to avoid the traversal of the entire data at each step may provide lower bounds with respect to N.  
 
@@ -52,7 +56,7 @@ The size of the search space was given by
 
 ![form](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/space_size.gif), 
 
-where ![nj](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/nj.gif) was the number of literals at the position ![j](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/j.gif). A mixture of hill-climbing and random walk was used, as described in Asymptotic Analysis. Each search was started with the rule that included all literals that occured in binding data instances. Literals were preferably deleted from and sometimes added to a rule during a search. After each deletion of a literal, the resulting rule retained the literals of the preceding rule that did not change its set of satisfied instances ("non-essential" literals). This feature improved search results, demonstrating that the choice of a better representation of search solutions could improve the performance of a local search algorithm. "Non-essential" literals were deleted in a final output rule. 
+where ![nj](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/nj.gif) was the number of literals at the position ![j](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/j.gif). A mixture of hill-climbing and random walk was used, as described in Asymptotic Analysis. Each search was started with the rule that included all literals that occured in binding data instances. Literals were preferably deleted from and sometimes added to a rule during a search. After each deletion of a literal, the resulting rule retained the literals of the preceding rule that did not change its set of satisfied instances ("non-essential" literals). This feature improved search results, demonstrating that the choice of a better representation of search solutions could consistently improve the performance of a local search algorithm. "Non-essential" literals were deleted in a final output rule. 
 
 ![combo](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/search_runs.png)
 
