@@ -6,7 +6,7 @@ Run `sbcl` in the terminal. Then run the following instructions:
 
 `(load "search.system")`
 
-`(mk) ;;ignore the few warnings that will be resolved with additional refactoring later`
+`(mk) ;;ignore the few warnings due to the compilation order`
 
 `(make-random-state t)`
 
@@ -17,39 +17,39 @@ Run `sbcl` in the terminal. Then run the following instructions:
 
 Identifying causes of rare events remains a challenge across disciplines such as software safety, natural language processing, and bioengineering. Causal information can often be contained in sequences of discrete tokens (e.g. computation states, words, nucleotides), associated with a discrete or continuous value indicating an occurrence or property of a rare event. 
 
-The presented search algorithm enables the enrichment of sequences associated with rare events in concise logical representations. The algorithm i) is scalable in the number of considered sequence positions and ii) provides an interpretable search space for the identification of potential causal relationships.
+The presented search algorithm enables the enrichment of sequences associated with rare events in a concise logical representation. The algorithm i) is scalable in the number of considered sequence positions and ii) provides an interpretable search space for the identification of potential causal relationships.
 
 **Algorithm**
 
 An input data set consists of sequences of discrete tokens. Each sequence is associated with a continuous or discrete value.
 
-A rule is a conjunction of disjunctions. A conjunction across sequence positions constrains a rule, whereas XOR disjunctions across literals at each sequence position relax a rule. A rule satisfies a subset of sequences in the input data set. An objective function maps satisfied sequences to a real value. 
+A rule is a conjunction of disjunctions. A conjunction across sequence positions constrains a rule, whereas XOR disjunctions across literals at each sequence position relax a rule. A rule satisfies a subset of sequences in the input data set. An objective function maps the sequences satisfied by a rule to a real value. 
 
-The search algorithm provides a local search for rules with a minimized or maximized value of the objective function, and a minimized sequence variance for interpretability purposes. The latter property is formulated outside the objective function and is enabled by i) constructing each disjunction in a start rule from a set of literals, such that each literal is expected to be satisfied in at least one optimal rule, and ii) setting a preference for literal deletion over literal addition in a search step.
+The search algorithm provides a local search for rules with a minimized or maximized value of an objective function, and a minimized sequence variance for interpretability purposes. The latter property is formulated outside an objective function and is enabled by i) constructing each disjunction in a start rule from the largest (or a large) set of literals satisfied in the data set, and ii) setting a preference for literal deletion over literal addition in a search step.
 
 **Asymptotic Analysis**
 
-The below analysis is based on the provided implementation of the WalkSAT-inspired local search step. To move from a solution to the next solution, three literal deletion options are considered: <br/>
-1) choose a random (false) satisfied data instance, and then choose the POSITION and the LITERAL in the data instance whose deletion optimizes the objective function,
-2) choose a RANDOM POSITION in the current solution, and then choose the LITERAL whose deletion optimizes the objective function,
-3) chose a RANDOM LITERAL in the current solution, and then choose the POSITION where the deletion of the literal optimizes the objective function.
+The below analysis is based on the provided implementation of a local search step. To move from a solution to the next solution according to a given objective function, three literal deletion options are considered: <br/>
+1) choose a random (false) satisfied data instance, and then choose a POSITION and a LITERAL in the data instance whose deletion optimizes the objective function,
+2) choose a RANDOM POSITION in the current solution, and then choose a LITERAL whose deletion optimizes the objective function,
+3) chose a RANDOM LITERAL in the current solution, and then choose a POSITION where the deletion of the literal optimizes the objective function.
 
-If a pre-defined enrichment threshold is reached, the best of 1-3 is always chosen. Otherwise, the best of 1-3 is chosen with some probability. With some probability, a random option of 1-3 is chosen. With some probability, a literal is added to the current solution.
+If a pre-defined enrichment threshold is reached, the best of 1-3 is always chosen. Otherwise, a) the best of 1-3 is chosen with some probability, b) a random option of 1-3 is chosen with some probability, or c) a literal is added to the current solution with some probability.
 
 Given
 
 N: size of the data set of sequences <br/>
 T: number of positions in each sequence <br/>
-L: max number of literals at any position <br/>
+L: max number of literals at a position <br/>
 S: number of local search steps <br/>
 
 we obtain
 
 O(SN(2T + L)).
 
-2T could be implemented as T, providing O(SN(T + L)). The use or design of suitable data structures to avoid the traversal of the entire data at each step may provide lower bounds with respect to N.  
+2T could be implemented as T, providing O(SN(T + L)). A suitable data structure to avoid the traversal of the entire data at each step may provide a lower bound.  
 
-**Application Example - Bioengineering, Proteomics**
+**Application Example**
 
 Protein-protein interactions provide an effective way to modulate protein targets for therapeutic purposes. However, binding events in protein-protein interaction data are generally rare and can be associated with a high sequence variance across many interdependent amino acid positions. As a consequence, it remains challenging to causally link specific amino acid changes to observed affinity and selectivity changes. 
 
@@ -63,13 +63,13 @@ The data set published by Stiffler et al. (2007) was used as a source of verifie
 
 **Results**
 
-16 sequence positions across PDZ domains and 5 sequence positions across peptides were considered. A rule was defined as a conjunction of 21 XOR disjunctions of amino acid literals. The value of the objective function was defined as the ratio of binding data instances to non-binding data instances satisfied by a rule. 
+16 sequence positions across PDZ domains and 5 sequence positions across peptides were considered. A rule was defined as a conjunction of of at most 21 XOR disjunctions of amino acid literals. The value of the objective function was defined as the ratio of binding data instances to non-binding data instances satisfied by a rule. 
 
 The size of the search space was given by
 
 ![form](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/space_size.gif), 
 
-where ![nj](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/nj.gif) was the number of literals at the position ![j](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/j.gif). A mixture of hill-climbing and random walk was used, as described in Asymptotic Analysis. Each search was started with the rule that included all literals that occured in binding data instances. Literals were preferably deleted from and sometimes added to a rule during a search. After each deletion of a literal, the resulting rule retained the literals of the preceding rule that did not change its set of satisfied instances ("non-essential" literals). This feature improved search results, **demonstrating that the choice of a better representation of search solutions could consistently improve the performance of a local search algorithm**. "Non-essential" literals were deleted in a final output rule. 
+where ![nj](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/nj.gif) was the number of possible literals at the position ![j](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/j.gif). A mixture of hill-climbing and random walk was used, as described in Asymptotic Analysis. Each search was started with the rule that included all literals that occured in binding data instances. Literals were preferably deleted from and sometimes added to a rule during a search. After each deletion of a literal, the resulting rule retained the literals of the preceding rule that did not change its set of satisfied instances ("non-essential" literals). This feature improved search results, **demonstrating that the choice of a better representation of search solutions could consistently improve the performance of a local search algorithm**. "Non-essential" literals were deleted in a final output rule. 
 
 ![combo](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/search_runs.png)
 
@@ -89,5 +89,3 @@ all 6 peptides were binding to each PDZ, but Kd values for the peptides ending w
 1) S A in >PSD95_1/3_28X_P_1KEFA and >SAP97_1/3_29X_P_1ZOKA did not change the binding profile from previous interactions
 2) but additional changes SRA D in >SCRB1_2/4_37X_P_1WHAA left only IETHV interacting,
 3) but then again additional changes N V K Q in >OMP25_1/1_8X_P_2ENOA restored the initial interaction profile.
-
-The starter function in stochastic-search.lisp can be used to run a search (e.g. (starter "DATA_full.txt") with a pre-seeded random state). 
