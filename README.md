@@ -1,5 +1,18 @@
 # lisp-seq-cause-search
 
+**Quick start**
+
+Run `sbcl` in the terminal. Then run the following instructions:
+
+`(load "search.system")`
+
+`(mk) ;;ignore the few warnings that will be resolved with additional refactoring later`
+
+`(make-random-state t)`
+
+`(starter "DATA_full.txt") ;;this function can run for hours`
+
+
 **Problem**
 
 Identifying causes of rare events remains a challenge across disciplines such as software safety, natural language processing, and bioengineering. Causal information can often be contained in sequences of discrete tokens (e.g. computation states, words, nucleotides), associated with a discrete or continuous value indicating an occurrence or property of a rare event. 
