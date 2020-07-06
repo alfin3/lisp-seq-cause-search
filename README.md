@@ -6,7 +6,7 @@ Run `sbcl` in the terminal. Then run the following instructions:
 
 `(load "search.system")`
 
-`(mk) ;;ignore the few warnings due to the compilation order`
+`(mk) ;;ignore the few style warnings due to the compilation order, to be resolved later`
 
 `(make-random-state t)`
 
