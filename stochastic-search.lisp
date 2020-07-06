@@ -22,30 +22,6 @@
 (defparameter +total-iterations+ 100)
 (defparameter *best-rule-lst* ())
 
-(defstruct params
-  ; hash table: key -> data instance (inst struct)
-  data-ht 
-  ; hash table: position -> list of literals in true data instances
-  t-ht
-  ; hash table: position -> list of literals in false data instances 
-  f-ht
-  ; list of sequence positions
-  pos-lst
-  ; list of data instance keys in data-ht
-  key-lst
-  ; list of literals occuring across all data instances
-  lit-lst)
-
-(defstruct inst
-  ; first sequence as a list
-  first-seq-lst
-  ; second sequence as a list
-  second-seq-lst
-  ; append second to first sequences
-  seq-lst
-  ; float value of the data instance
-  value)
-
 ;;;; running the search algorithm
 
 (defun starter (pathname)

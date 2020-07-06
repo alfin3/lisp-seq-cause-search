@@ -4,24 +4,6 @@
 ;;;;
 ;;;; SBCL 1.3.1
 
-(defstruct rule
-  ; current rule hash table: position -> list of literals
-  current-ht
-  ; list of current to initial path-nodes
-  path-lst 
-  ; true satisfied instances (keys mapping to inst structs in data-ht)
-  t-lst
-  ; false satisfied instances (keys mapping to inst structs in data-ht)
-  f-lst
-  ; array of literal frequencies across true satisfied instances
-  t-freq-arr
-  ; array of literal frequences across false satisfied instances
-  f-freq-arr)
-
-(defstruct path-node 
-  ; rule hash table: position -> list of literals
-  rule-ht)
-
 ;;;; rule creation and modification functions
 
 (defun create-start-rule (params)

@@ -1,0 +1,16 @@
+;;  System file for the rule search project.
+;;
+
+(in-package common-lisp-user)
+
+(load "./comp-utils/simple-defsys")
+
+(define-system "rule-search"
+  "utilities"
+  "structs"
+  "rule"
+  "stochastic-search"
+  "generalization"
+  )
+
+;; EOF
