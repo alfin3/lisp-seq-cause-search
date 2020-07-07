@@ -23,25 +23,25 @@ The presented search algorithm enables the enrichment of sequences associated wi
 
 An input data set consists of sequences of discrete tokens. Each sequence is associated with a continuous or discrete value.
 
-A rule is a conjunction of disjunctions. A conjunction across sequence positions constrains a rule, whereas XOR disjunctions across literals at each sequence position relax a rule. A rule satisfies a subset of sequences in the input data set. An objective function maps the sequences satisfied by a rule to a real value. 
+A rule is a conjunction of disjunctions. A conjunction across sequence positions constrains a rule, whereas XOR disjunctions across literals at each sequence position relax a rule. A rule satisfies a subset of sequences in the data set. An objective function maps the sequences satisfied by a rule to a real value. 
 
-The search algorithm provides a local search for rules with a minimized or maximized value of an objective function, and a minimized sequence variance for interpretability purposes. The latter property is formulated outside an objective function and is enabled by i) constructing each disjunction in a start rule from the largest (or a large) set of literals satisfied in the data set, and ii) setting a preference for literal deletion over literal addition in a search step.
+The search algorithm provides a local search for rules with a minimized or maximized value of an objective function, and a minimized sequence variance for interpretability purposes. The latter property is formulated outside the objective function and is enabled by i) constructing each disjunction in a start rule from the largest (or a large) set of literals satisfied in the data set, and ii) setting a preference for literal deletion over literal addition in a search step.
 
 **Asymptotic Analysis**
 
-The below analysis is based on the provided implementation of a local search step. To move from a solution to the next solution according to a given objective function, three literal deletion options are considered: <br/>
-1) choose a random (false) satisfied data instance, and then choose a POSITION and a LITERAL in the data instance whose deletion optimizes the objective function,
-2) choose a RANDOM POSITION in the current solution, and then choose a LITERAL whose deletion optimizes the objective function,
-3) chose a RANDOM LITERAL in the current solution, and then choose a POSITION where the deletion of the literal optimizes the objective function.
+The below analysis is based on the provided implementation of a local search step. To move from a solution (a rule) to the next solution according to a given objective function, three literal deletion options are considered: <br/>
+1) choose a random (false) satisfied data instance, and then choose a POSITION and a LITERAL in the data instance whose deletion minimizes/maximizes the objective function,
+2) choose a RANDOM POSITION in the current solution, and then choose a LITERAL whose deletion minimizes/maximizes the objective function,
+3) chose a RANDOM LITERAL in the current solution, and then choose a POSITION where the deletion of the literal minimizes/maximizes the objective function.
 
 If a pre-defined enrichment threshold is reached, the best of 1-3 is always chosen. Otherwise, a) the best of 1-3 is chosen with some probability, b) a random option of 1-3 is chosen with some probability, or c) a literal is added to the current solution with some probability.
 
 Given
 
-N: size of the data set of sequences <br/>
-T: number of positions in each sequence <br/>
-L: max number of literals at a position <br/>
-S: number of local search steps <br/>
+N: the size of the data set of sequences <br/>
+T: the number of positions in each sequence <br/>
+L: the maximum number of literals at any position <br/>
+S: the number of local search steps <br/>
 
 we obtain
 
