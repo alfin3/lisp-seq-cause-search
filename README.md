@@ -35,7 +35,7 @@ The below analysis is based on the provided implementation of a local search ste
 2) choose a RANDOM POSITION in the current solution, and then choose a LITERAL whose deletion minimizes/maximizes the objective function,
 3) chose a RANDOM LITERAL in the current solution, and then choose a POSITION where the deletion of the literal minimizes/maximizes the objective function.
 
-If a pre-defined enrichment threshold is reached, the best of 1-3 is always chosen. Otherwise, a) the best of 1-3 is chosen with some probability, b) a random option of 1-3 is chosen with some probability, or c) a literal is added to the current solution with some probability.
+If a pre-defined enrichment threshold is reached, the best of 1-3 is chosen. Otherwise, i) the best of 1-3 is chosen with some probability, ii) a random option of 1-3 is chosen with some probability, or iii) a literal is added to the current solution with some probability.
 
 Given
 
@@ -48,7 +48,7 @@ we obtain
 
 O(SN(2T + L)).
 
-2T could be implemented as T, providing O(SN(T + L)). A suitable data structure to avoid the traversal of the entire data at each step may provide a lower bound.  
+2T could be implemented as T, providing O(SN(T + L)). A suitable data structure to avoid the traversal of the entire data set at each step may provide a lower bound.  
 
 **Application Example**
 
