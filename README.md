@@ -6,12 +6,13 @@ Run `sbcl` in the terminal. Then run the following instructions:
 
 `(load "search.system")`
 
-`(mk) ;;ignore the few style warnings due to the compilation order, to be resolved later`
+`(mk)`
 
 `(make-random-state t)`
 
-`(starter "DATA_full.txt") ;;this function can run for hours`
+`(starter "DATA_full.txt")` 
 
+Ignore the few compilation order-related style warnings that will be resolved later. A search started by the `starter` function can run for hours.
 
 **Problem**
 
