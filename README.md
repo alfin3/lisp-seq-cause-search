@@ -12,13 +12,13 @@ Run `sbcl` in the terminal. Then run the following instructions:
 
 `(starter "DATA_full.txt")` 
 
-Ignore the few compilation order-related style warnings that will be resolved later. A search started by the `starter` function can run for hours.
+Please ignore the few compilation order-related style warnings that will be resolved later. A search started by the `starter` function can run for hours.
 
 **Problem**
 
 Identifying causes of rare events remains a challenge across disciplines such as software safety and bioengineering. Causal information can often be contained in sequences of discrete tokens (e.g. thread states, nucleotides), associated with a discrete or continuous value indicating an occurrence or property of a rare event. 
 
-The presented search algorithm enables the identification of potential causal relationships underlying rare events in sequence data by enriching sequences associated with rare events in a concise logical representation. The algorithm i) is scalable in the number of considered sequence positions and ii) provides an interpretable search space.
+The presented search algorithm enables the identification of potential causal relationships underlying rare events in sequence data by enriching sequences associated with rare events in a concise logical representation. Implemented in Common Lisp, the algorithm i) is scalable in the number of considered sequence positions and ii) provides an interpretable search space. The approach was validated on a bioengineering problem and has potential applications in areas such as the analysis of race conditions in multithreaded programs.
 
 **Algorithm**
 
@@ -70,7 +70,7 @@ The size of the search space was given by
 
 ![form](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/space_size.gif), 
 
-where ![nj](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/nj.gif) was the number of possible literals at the position ![j](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/j.gif). A mixture of hill-climbing and random walk was used, as described in Asymptotic Analysis. Each search was started with the rule that included all literals that occured in binding data instances. Literals were preferably deleted from and sometimes added to a rule during a search. After each deletion of a literal, the resulting rule retained the literals of the preceding rule that did not change its set of satisfied instances ("non-essential" literals). This feature improved search results, **demonstrating that the choice of a better representation of search solutions could consistently improve the performance of a local search algorithm**. "Non-essential" literals were deleted in a final output rule. 
+where ![nj](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/nj.gif) was the number of possible literals at the position ![j](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/j.gif). Each search was started with the rule that included all literals that occured in binding data instances. Literals were preferably deleted from and sometimes added to a rule during a search. After each deletion of a literal, the resulting rule retained the literals of the preceding rule that did not change its set of satisfied instances ("non-essential" literals). This feature improved search results, **demonstrating that the choice of a better representation of search solutions could consistently improve the performance of a local search algorithm**. "Non-essential" literals were deleted in a final output rule. 
 
 ![combo](https://github.com/alfin3/lisp-seq-cause-search/blob/master/images/search_runs.png)
 
