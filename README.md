@@ -18,7 +18,7 @@ Please ignore the few compilation order-related style warnings that will be reso
 
 Identifying causes of rare events remains a challenge across disciplines such as software safety and bioengineering. Causal information can often be contained in sequences of discrete tokens (e.g. thread states, nucleotides), associated with a discrete or continuous value indicating an occurrence or property of a rare event. 
 
-The presented search algorithm enables the identification of potential causal relationships underlying rare events in sequence data by enriching sequences associated with rare events in a concise logical representation. Implemented in Common Lisp, the algorithm i) is scalable in the number of considered sequence positions and ii) provides an interpretable search space. The approach was validated on a bioengineering problem and has potential applications in areas such as the analysis of race conditions in multithreaded programs.
+The presented search algorithm enables the identification of potential causal relationships underlying rare events in sequence data by enriching sequences associated with rare events in a concise logical representation. Implemented in Common Lisp, the algorithm i) is scalable in the number of considered sequence positions and ii) provides an interpretable search space. The approach was validated on a bioengineering problem.
 
 **Algorithm**
 
@@ -46,9 +46,9 @@ S: the number of local search steps <br/>
 
 we obtain
 
-O(SN(2T + L)).
+O(SN(T + L)).
 
-2T could be implemented as T, providing O(SN(T + L)). A suitable data structure to avoid the traversal of the entire data set at each step may provide a lower bound.  
+A suitable data structure to avoid the traversal of the entire data set at each step may provide a lower bound.  
 
 **Application Example**
 
@@ -64,7 +64,7 @@ The data set published by Stiffler et al. (2007) was used as a source of verifie
 
 **Results**
 
-16 sequence positions across PDZ domains and 5 sequence positions across peptides were considered. A rule was defined as a conjunction of of at most 21 XOR disjunctions of amino acid literals. The value of the objective function was defined as the ratio of binding data instances to non-binding data instances satisfied by a rule. 
+16 sequence positions across PDZ domains and 5 sequence positions across peptides were considered. A rule was defined as a conjunction of at most 19 XOR disjunctions of amino acid literals. The value of the objective function was defined as the ratio of binding data instances to non-binding data instances satisfied by a rule. 
 
 The size of the search space was given by
 
