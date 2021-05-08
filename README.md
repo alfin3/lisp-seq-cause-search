@@ -18,7 +18,7 @@ Please ignore the few compilation order-related style warnings that will be reso
 
 Identifying causes of rare events remains a challenge across disciplines such as software safety and bioengineering. Causal information can often be contained in sequences of discrete tokens (e.g. thread states, nucleotides), associated with a discrete or continuous value indicating an occurrence or property of a rare event. 
 
-The presented search algorithm enables the identification of potential causal relationships underlying rare events in sequence data by enriching sequences associated with rare events in a concise logical representation. Implemented in Common Lisp, the algorithm i) is scalable in the number of considered sequence positions and ii) provides an interpretable search space. The approach was validated on a bioengineering problem.
+The presented search algorithm enables the identification of potential causal relationships underlying rare events in sequence data by enriching sequences associated with rare events in a concise logical representation. Implemented in Common Lisp, the algorithm i) is scalable in the number of considered sequence positions and ii) provides an interpretable search space. The approach was validated on a bioengineering problem and has potential applications in root cause analysis.
 
 **Algorithm**
 
